@@ -31,6 +31,11 @@ public class CargaInicial {
         copa.registrarPartidas(new Partida(franca,alemanha));
         copa.registrarPartidas(new Partida(espanha,mexico));
         copa.registrarPartidas(new Partida(portugal,inglaterra));
+
+        //artilheiros
+        copa.adicionarArtilheiros("Messi");
+        copa.adicionarArtilheiros("Neymar");
+        copa.adicionarArtilheiros("Mbappe");
     }
 
 
