@@ -38,5 +38,11 @@ public class Copa {
             System.out.println(artilheiro);
         }
     }
+    public void calcularClassificacao(){
+        System.out.println("=== CLASSIFICAÇÃO ===");
+        for (Selecao selecao: selecoes){
+            System.out.println(selecao.getNome());
+        }
+    }
 
 }
