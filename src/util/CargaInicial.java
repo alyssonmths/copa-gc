@@ -25,6 +25,13 @@ public class CargaInicial {
         copa.adicionarSelecoes(mexico);
         copa.adicionarSelecoes(portugal);
         copa.adicionarSelecoes(inglaterra);
+
+        //Partidas
+        copa.registrarPartidas(new Partida(brasil,argentina));
+        copa.registrarPartidas(new Partida(franca,alemanha));
+        copa.registrarPartidas(new Partida(espanha,mexico));
+        copa.registrarPartidas(new Partida(portugal,inglaterra));
     }
+
 
 }
