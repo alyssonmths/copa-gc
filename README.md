@@ -105,7 +105,7 @@ Responsável por:
 
 ---
 
-## 🚀 Como Executar
+## 🚀 Como Executar o projeto
 
 ### Compilar
 
