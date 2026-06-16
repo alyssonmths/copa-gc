@@ -6,48 +6,59 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        
+
         Copa copa = new Copa();
         CargaInicial.carregar(copa);
 
         Scanner scanner = new Scanner(System.in);
         int opcao = -1;
 
-        
         do {
             exibirMenu();
             System.out.print("Escolha uma opção: ");
 
-            
             if (scanner.hasNextInt()) {
                 opcao = scanner.nextInt();
-                scanner.nextLine(); 
+                scanner.nextLine();
             } else {
-                scanner.nextLine(); 
+                scanner.nextLine();
                 System.out.println("\nEntrada inválida! Digite um número.\n");
                 continue;
             }
 
             switch (opcao) {
                 case 1:
-                    
-                    System.out.println("\n[Opção 1] ainda não implementada.\n");
+                    System.out.print("\nDigite a letra do grupo (A ou B): ");
+                    String entradaGrupo = scanner.nextLine().trim().toUpperCase();
+
+                    if (entradaGrupo.length() != 1 || (entradaGrupo.charAt(0) != 'A' && entradaGrupo.charAt(0) != 'B')) {
+                        System.out.println("\nGrupo inválido! Digite A ou B.\n");
+                    } else {
+                        char grupo = entradaGrupo.charAt(0);
+                        System.out.println("\n=== SELEÇÕES DO GRUPO " + grupo + " ===");
+                        copa.listarGrupos(grupo);
+                        System.out.println();
+                    }
                     break;
+
                 case 2:
-                    
                     System.out.println("\n[Opção 2] ainda não implementada.\n");
                     break;
+
                 case 3:
-                    
                     System.out.println("\n[Opção 3] ainda não implementada.\n");
                     break;
+
                 case 4:
-                    
-                    System.out.println("\n[Opção 4] ainda não implementada.\n");
+                    System.out.println();
+                    copa.calcularClassificacao();
+                    System.out.println();
                     break;
+
                 case 0:
                     System.out.println("\nEncerrando o sistema. Até mais!");
                     break;
+
                 default:
                     System.out.println("\nOpção inexistente! Tente novamente.\n");
             }
