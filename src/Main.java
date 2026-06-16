@@ -1,6 +1,8 @@
+import model.Partida;
 import service.Copa;
 import util.CargaInicial;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -42,11 +44,64 @@ public class Main {
                     break;
 
                 case 2:
-                    System.out.println("\n[Opção 2] ainda não implementada.\n");
+                    List<Partida> partidas = copa.getPartidas();
+
+                    if (partidas.isEmpty()) {
+                        System.out.println("\nNenhuma partida registrada.\n");
+                        break;
+                    }
+
+                    System.out.println("\n=== PARTIDAS DISPONÍVEIS ===");
+                    for (int i = 0; i < partidas.size(); i++) {
+                        Partida p = partidas.get(i);
+                        System.out.println(i + " - " + p.getMandante().getNome()
+                                + " vs " + p.getVisitante().getNome()
+                                + " | Placar atual: " + p.getGolsA() + " x " + p.getGolsB());
+                    }
+
+                    System.out.print("\nDigite o número da partida: ");
+                    if (!scanner.hasNextInt()) {
+                        scanner.nextLine();
+                        System.out.println("\nEntrada inválida!\n");
+                        break;
+                    }
+                    int indice = scanner.nextInt();
+                    scanner.nextLine();
+
+                    if (indice < 0 || indice >= partidas.size()) {
+                        System.out.println("\nPartida inexistente!\n");
+                        break;
+                    }
+
+                    System.out.print("Gols do mandante (" + partidas.get(indice).getMandante().getNome() + "): ");
+                    if (!scanner.hasNextInt()) {
+                        scanner.nextLine();
+                        System.out.println("\nEntrada inválida!\n");
+                        break;
+                    }
+                    int golsA = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.print("Gols do visitante (" + partidas.get(indice).getVisitante().getNome() + "): ");
+                    if (!scanner.hasNextInt()) {
+                        scanner.nextLine();
+                        System.out.println("\nEntrada inválida!\n");
+                        break;
+                    }
+                    int golsB = scanner.nextInt();
+                    scanner.nextLine();
+
+                    copa.registrarPlacar(indice, golsA, golsB);
+                    System.out.println("\nPlacar registrado com sucesso: "
+                            + partidas.get(indice).getMandante().getNome() + " "
+                            + golsA + " x " + golsB + " "
+                            + partidas.get(indice).getVisitante().getNome() + "\n");
                     break;
 
                 case 3:
-                    System.out.println("\n[Opção 3] ainda não implementada.\n");
+                    System.out.println("\n=== ARTILHEIROS ===");
+                    copa.exibirrArtilheiros();
+                    System.out.println();
                     break;
 
                 case 4:
