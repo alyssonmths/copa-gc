@@ -24,25 +24,37 @@ public class Copa {
     }
 
     public void listarGrupos(char grupo) {
-        for (Selecao selecao : selecoes){
-            if(selecao.getGrupo()==grupo){
+        for (Selecao selecao : selecoes) {
+            if (selecao.getGrupo() == grupo) {
                 System.out.println(selecao);
             }
         }
     }
-    public void adicionarArtilheiros(String nome){
+
+    public void adicionarArtilheiros(String nome) {
         artilheiros.add(nome);
     }
+
     public void exibirrArtilheiros() {
         for (String artilheiro : artilheiros) {
             System.out.println(artilheiro);
         }
     }
-    public void calcularClassificacao(){
+
+    public void calcularClassificacao() {
         System.out.println("=== CLASSIFICAÇÃO ===");
-        for (Selecao selecao: selecoes){
+        for (Selecao selecao : selecoes) {
             System.out.println(selecao.getNome());
         }
     }
 
+    public List<Partida> getPartidas() {
+        return partidas;
+    }
+
+    public void registrarPlacar(int indice, int golsA, int golsB) {
+        Partida partida = partidas.get(indice);
+        partida.setGolsA(golsA);
+        partida.setGolsB(golsB);
+    }
 }
