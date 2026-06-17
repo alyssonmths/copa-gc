@@ -173,5 +173,3 @@ Professor: Marcondes Ricarte
 ## 📄 Licença
 
 Projeto desenvolvido exclusivamente para fins acadêmicos.
-
-teste de git revert
